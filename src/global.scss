@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
 
 body {
-  background: url('/image/2.jpeg')no-repeat center center fixed;
+  // background: url('/image/2.jpeg')no-repeat center center fixed;
+  background: -webkit-linear-gradient(45deg, rgb(207, 154, 154) 33%, rgb(82, 151, 182));
+  background: -moz-linear-gradient(45deg, rgb(207, 154, 154) 33%, rgb(82, 151, 182));
+  background: linear-gradient(45deg, rgb(207, 154, 154) 33%, rgb(82, 151, 182));
   background-size: cover;
   color: rgb(255, 255, 255);
   font-family: 'Ubuntu', sans-serif;
