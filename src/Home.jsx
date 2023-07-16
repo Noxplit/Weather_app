@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { getCurrentWeather, getForecastWeather } from './redux/slice/weatherSlice'
 import { Route, Routes } from 'react-router-dom'
+import DescriptionForecast from './components/pages/descriptionForecast'
 
 function Home() {
 
@@ -38,7 +39,7 @@ function Home() {
 					<MainBlock />
 				</div>
 			</div>} path='/'/>
-      {/* <Route element={<DescriptionForecast/>} path='/description'/> */}
+      <Route element={<DescriptionForecast/>} path='/description'/>
       </Routes>
 			
 		</div>
