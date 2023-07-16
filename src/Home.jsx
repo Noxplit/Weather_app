@@ -8,7 +8,6 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { getCurrentWeather, getForecastWeather } from './redux/slice/weatherSlice'
 import { Route, Routes } from 'react-router-dom'
-import DescriptionForecast from './components/pages/descriptionForecast'
 
 function Home() {
 
