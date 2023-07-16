@@ -6,7 +6,6 @@ const DescriptionForecast = () => {
   const {oneDayForecast} = useSelector(state=>state)
  const weather = oneDayForecast?.day
  const dayForecast = oneDayForecast?.hour
- console.log(dayForecast);
 
 
   return (
