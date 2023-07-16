@@ -1,0 +1,25 @@
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  gap:15px;
+  border-bottom:2px solid rgb(98, 98, 98);
+  padding: 15px 50px;
+  cursor: pointer;
+
+}
+.wrapper:hover {
+  transition: all;
+  opacity: 70%;
+}
+.title {
+  font-size: 70px;
+}
+.date {
+  font-size: 30px;
+}
+.description {
+  font-size: 20px;
+}

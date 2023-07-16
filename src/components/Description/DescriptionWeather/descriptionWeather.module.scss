@@ -1,0 +1,20 @@
+.wrapper{
+  display: flex;
+  gap:10px;
+  flex-direction: column;
+  align-items:start;
+  justify-content: center;
+  border-bottom:2px solid rgb(155, 155, 155);
+  margin-bottom: 20px;
+  padding: 20px 0;
+
+}
+
+.container_icon {
+  display: flex;
+  justify-content: center;
+  align-items:'center';
+  gap:5px;
+  
+}
+

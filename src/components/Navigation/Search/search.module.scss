@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  gap:20px;
+  cursor: pointer;
+  border-bottom: 1px solid white;
+}
+
+.input {
+background-color: transparent;
+border:none;
+color:white;
+height: 20px;
+}
