@@ -39,7 +39,7 @@ function Home() {
 					<MainBlock />
 				</div>
 			</div>} path='/'/>
-      <Route element={<DescriptionForecast/>} path='/description'/>
+      {/* <Route element={<DescriptionForecast/>} path='/description'/> */}
       </Routes>
 			
 		</div>
