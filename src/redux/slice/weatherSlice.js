@@ -4,6 +4,7 @@ const initialState = {
   currentWeather: [],
   forecastWeather: [],
   oneDayForecast: [],
+  isLoading: true,
   inputValue: 'Baranovichi',
 }
 
@@ -22,10 +23,13 @@ postInputValue: (state, action) => {
 },
 getOneDayForecast: (state, action) => {
   state.oneDayForecast = action.payload
+},
+setIsLoading: (state, action) => {
+  state.isLoading = action.payload
 }
   },
 })
 
-export const {getCurrentWeather, getForecastWeather,postInputValue,getOneDayForecast} = weatherSlice.actions
+export const {getCurrentWeather, getForecastWeather,postInputValue,getOneDayForecast, setIsLoading} = weatherSlice.actions
 
 export default weatherSlice.reducer
