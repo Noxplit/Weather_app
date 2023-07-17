@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import DescriptionWeather from '../Description/DescriptionWeather/DescriptionWeather'
 import DayForecast from '../Description/ForTenHour/DayForecast'
 import styles from './descriptionForecast.module.scss'
+import { Sugar } from 'react-preloaders'
 
 const DescriptionForecast = () => {
 	const { oneDayForecast } = useSelector(state => state)
