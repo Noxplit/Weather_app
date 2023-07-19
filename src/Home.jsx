@@ -4,51 +4,51 @@ import MainBlock from './components/MainBlock/MainBlock/MainBlock'
 import NavigationItems from './components/Navigation/NavigationItems/NavigationItems'
 import './global.scss'
 import styles from './home.module.scss'
-import { useEffect } from 'react'
 import axios from 'axios'
-import { getCurrentWeather,  getForecastWeather,  setIsLoading } from './redux/slice/weatherSlice'
+import { getCurrentWeather, getForecastWeather} from './redux/slice/weatherSlice'
 import { Route, Routes } from 'react-router-dom'
 import DescriptionForecast from './components/pages/DescriptionForecast'
 import Loading from './components/Loading/Loading'
+import { useQuery } from 'react-query'
 
 function Home() {
 	const { inputValue } = useSelector(state => state)
-	const { isLoading } = useSelector(state => state)
 	const dispatch = useDispatch()
 
-	useEffect(() => {
+	const fetchData = () => {
 		const fetchDataForecast = async () => {
-			try {
-				await axios
-					.get(
-						`http://api.weatherapi.com/v1/current.json?key=80ce54289eb64c488cb131854231307&q=${inputValue}&aqi=no`,
-					)
-					.then(data => dispatch(getCurrentWeather(data.data)))
-				dispatch(setIsLoading(false))
-			} catch (error) {
-				console.error(error)
-				dispatch(setIsLoading(false))
-			}
+			const response = await axios.get(
+				`http://api.weatherapi.com/v1/current.json?key=80ce54289eb64c488cb131854231307&q=${inputValue}&aqi=no`,
+			)
+			return dispatch(getCurrentWeather(response.data))
 		}
-    const fetchDataDescr = async () => {
-			try {
-				await axios
-					.get(
-						`http://api.weatherapi.com/v1/forecast.json?key=80ce54289eb64c488cb131854231307&q=${inputValue}&days=10&aqi=no&alerts=no`,
-					)
-					.then(data => dispatch(getForecastWeather(data.data)))
-				dispatch(setIsLoading(false))
-			} catch (error) {
-				console.log(error)
-				dispatch(setIsLoading(false))
-			}
+		const fetchDataDescr = async () => {
+			const response = await axios.get(
+				`http://api.weatherapi.com/v1/forecast.json?key=80ce54289eb64c488cb131854231307&q=${inputValue}&days=10&aqi=no&alerts=no`,
+			)
+			return dispatch(getForecastWeather(response.data))
 		}
-		fetchDataDescr()
 		fetchDataForecast()
-	}, [inputValue])
+		fetchDataDescr()
+	}
+
+	const { isLoading, isError } = useQuery(
+		['dataDescription', inputValue],
+		() => fetchData(inputValue),
+		{ keepPreviousData: true },
+	)
 
 	if (isLoading) {
-		return <Loading />
+		return (
+			<div>
+				<Loading />
+				Loading...
+			</div>
+		)
+	}
+
+	if (isError) {
+		return <div>Error loading</div>
 	}
 
 	return (

@@ -22,8 +22,8 @@ const DescriptionForecast = () => {
 					justifyContent: 'space-around',
 					alignItems: 'center',
 				}}>
-				{dayForecast?.map(forecast => (
-					<DayForecast forecast={forecast} />
+				{dayForecast?.map((forecast,id) => (
+					<DayForecast key={id} forecast={forecast} />
 				))}
 			</div>
 		</div>
